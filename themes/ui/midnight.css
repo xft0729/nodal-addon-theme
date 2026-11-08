@@ -1,0 +1,25 @@
+/* Nodal Theme Switcher — Midnight (midnight) */
+:root[data-theme="midnight"] {
+  color-scheme: dark;
+  --color-bg: #0a0f1e;
+  --color-bg-surface: #111a2e;
+  --color-bg-canvas: #070b16;
+  --color-bg-inset: #0d1526;
+  --color-bg-panel-header: #0f1930;
+  --color-text: #e3e9ff;
+  --color-text-secondary: #8b99c7;
+  --color-text-tertiary: #5a6b9e;
+  --color-border: #1c2a4a;
+  --color-border-subtle: #16223d;
+  --color-border-strong: #2a3d6b;
+  --color-accent: #4cc9f0;
+  --color-accent-hover: #7dd8fd;
+  --color-accent-soft: rgba(76, 201, 240, 0.14);
+  --color-accent-contrast: #06202e;
+  --color-danger: #ff5d73;
+  --color-danger-soft: rgba(255, 93, 115, 0.14);
+  --color-success: #2ee6a8;
+  --color-success-soft: rgba(46, 230, 168, 0.12);
+  --color-focus-ring: #4cc9f0;
+  --canvas-grid: #13203c;
+}

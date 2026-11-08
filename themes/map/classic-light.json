@@ -1,0 +1,35 @@
+{
+  "id": "classic-light",
+  "name": "Classic Light",
+  "description": "The Lumen City default — white background, black labels, Nodal's stock palette.",
+  "notes": "Matches packages/app emptyMap(): #FFFFFF background, 14pt Noto Sans, station r=8, corner 36. Best starting point for new maps.",
+  "style": {
+    "background": "#FFFFFF",
+    "gridStep": 40,
+    "cornerRadius": 36,
+    "labelLanguage": "en",
+    "fontSize": 14,
+    "stationRadius": 8,
+    "fontFamily": "Noto Sans, sans-serif",
+    "labelColor": "#000000",
+    "fontWeight": 500,
+    "fontStyle": "normal",
+    "textTransform": "none",
+    "letterSpacing": 0
+  },
+  "linePalette": [
+    "#E00034",
+    "#0067C0",
+    "#009444",
+    "#FF8A00",
+    "#6A1B9A",
+    "#00A9A5",
+    "#E55934",
+    "#FFC800"
+  ],
+  "tags": [
+    "default",
+    "light",
+    "print"
+  ]
+}

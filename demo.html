@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nodal Theme Switcher — Gallery</title>
+<style>
+  body { font-family: Inter, system-ui, sans-serif; margin: 0; padding: 24px; background: #f6f6f6; color: #1a1a1a; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  p.sub { margin: 0 0 20px; color: #666; font-size: 13px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .card { background: #fff; border: 1px solid #e2e2e2; border-radius: 12px; overflow: hidden; }
+  .card .preview { height: 120px; display: flex; align-items: flex-end; gap: 8px; padding: 12px; }
+  .card .preview .dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; background: #fff; }
+  .card .body { padding: 12px 14px 14px; }
+  .card h3 { margin: 0 0 4px; font-size: 14px; }
+  .card .desc { margin: 0 0 8px; font-size: 12px; color: #666; min-height: 32px; }
+  .card code { font-size: 11px; color: #555; }
+  .card .row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+  .card button { font: inherit; font-size: 12px; padding: 6px 10px; border-radius: 8px; border: 1px solid #d9d9d9; background: #fafafa; cursor: pointer; }
+  .card button.primary { background: #1473e6; border-color: #1473e6; color: #fff; }
+  section h2 { font-size: 15px; margin: 28px 0 12px; }
+  .hint { font-size: 12px; color: #777; margin-top: 20px; }
+</style>
+</head>
+<body>
+<h1>Nodal Theme Switcher — Gallery</h1>
+<p class="sub">Static preview generated from <code>src/map-themes.ts</code> and <code>src/ui-themes.ts</code>. Serve with <code>npm run serve:demo</code>.</p>
+
+<section>
+  <h2>Map themes</h2>
+  <div class="grid" id="map-grid"></div>
+</section>
+
+<section>
+  <h2>UI themes</h2>
+  <div class="grid" id="ui-grid"></div>
+</section>
+
+<p class="hint">Registered AddonManager id: <code>nodal-addon-theme</code> · GitHub: https://github.com/xft0729/nodal-addon-theme</p>
+
+<script type="module">
+  import { MAP_THEMES, UI_THEMES } from "./dist/index.js";
+  const mapGrid = document.getElementById("map-grid");
+  for (const t of MAP_THEMES) {
+    const card = document.createElement("div");
+    card.className = "card";
+    const dots = t.linePalette.slice(0, 4).map(c => `<div class="dot" style="background:${c}"></div>`).join("");
+    card.innerHTML = `
+      <div class="preview" style="background:${t.style.background ?? "#fff"}">
+        ${dots}
+        <span style="margin-left:auto;font-size:11px;color:${t.style.labelColor ?? "#000"}">Ag</span>
+      </div>
+      <div class="body">
+        <h3>${t.name}</h3>
+        <p class="desc">${t.description}</p>
+        <code>${t.id}</code>
+        <div class="row">
+          <button class="primary" data-copy-map="${t.id}">Copy JSON</button>
+          <button data-copy-css="${t.id}">—</button>
+        </div>
+      </div>`;
+    card.querySelector("[data-copy-map]").addEventListener("click", async () => {
+      await navigator.clipboard.writeText(JSON.stringify(t, null, 2));
+    });
+    card.querySelector("[data-copy-css]").remove();
+    mapGrid.appendChild(card);
+  }
+  const uiGrid = document.getElementById("ui-grid");
+  for (const t of UI_THEMES) {
+    const card = document.createElement("div");
+    card.className = "card";
+    const v = t.variables;
+    card.innerHTML = `
+      <div class="preview" style="background:${v["--color-bg"]}">
+        <div style="flex:1;background:${v["--color-bg-surface"]};border:1px solid ${v["--color-border"]};border-radius:8px;padding:8px;color:${v["--color-text"]};font-size:11px">Panel</div>
+        <button style="background:${v["--color-accent"]};color:${v["--color-accent-contrast"]};border:none;border-radius:8px;padding:6px 10px;font-size:11px">Go</button>
+      </div>
+      <div class="body">
+        <h3>${t.name}</h3>
+        <p class="desc">${t.description}</p>
+        <code>${t.id} · ${t.mode}</code>
+      </div>`;
+    uiGrid.appendChild(card);
+  }
+</script>
+</body>
+</html>

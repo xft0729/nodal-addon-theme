@@ -1,0 +1,36 @@
+{
+  "id": "ocean-depth",
+  "name": "Ocean Depth",
+  "description": "Abyss blues for coastal and harbourside networks.",
+  "notes": "Background #0A1929, labels #D6EAF8. Palette walks harbour blue → cyan. Works for ferry and coastal-tram maps.",
+  "style": {
+    "background": "#0A1929",
+    "gridStep": 40,
+    "cornerRadius": 24,
+    "labelLanguage": "en",
+    "fontSize": 14,
+    "stationRadius": 8,
+    "fontFamily": "'Plus Jakarta Sans', Inter, sans-serif",
+    "labelColor": "#D6EAF8",
+    "fontWeight": 500,
+    "fontStyle": "normal",
+    "textTransform": "none",
+    "letterSpacing": 0.2
+  },
+  "linePalette": [
+    "#00B4D8",
+    "#0077B6",
+    "#48CAE4",
+    "#90E0EF",
+    "#0096C7",
+    "#00D4FF",
+    "#219EBC",
+    "#EDF6F9"
+  ],
+  "tags": [
+    "dark",
+    "ocean",
+    "coastal",
+    "ferry"
+  ]
+}

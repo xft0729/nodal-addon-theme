@@ -1,0 +1,36 @@
+{
+  "id": "retro-blueprint",
+  "name": "Retro Blueprint",
+  "description": "Sepia heritage paper with muted ink lines — vintage atlas feel.",
+  "notes": "Sepia #F3E9D2 background, serif display for interchange labels. Lower contrast by design; check print before distributing.",
+  "style": {
+    "background": "#F3E9D2",
+    "gridStep": 32,
+    "cornerRadius": 12,
+    "labelLanguage": "en",
+    "fontSize": 14,
+    "stationRadius": 7,
+    "fontFamily": "Merriweather, 'Noto Serif SC', Georgia, serif",
+    "labelColor": "#3B2F2F",
+    "fontWeight": 600,
+    "fontStyle": "italic",
+    "textTransform": "none",
+    "letterSpacing": 0.4
+  },
+  "linePalette": [
+    "#A44A3F",
+    "#2E6B8A",
+    "#4A7C59",
+    "#C9A86A",
+    "#6B4E71",
+    "#B85C38",
+    "#533B4F",
+    "#7A8450"
+  ],
+  "tags": [
+    "retro",
+    "vintage",
+    "sepia",
+    "print"
+  ]
+}

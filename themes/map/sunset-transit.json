@@ -1,0 +1,36 @@
+{
+  "id": "sunset-transit",
+  "name": "Sunset Transit",
+  "description": "Warm dusk gradient energy — ember, amber and violet on cream.",
+  "notes": "Light warm background with saturated warm palette. Poster-friendly; check that yellow labels are avoided (labels stay dark #4A2C2A).",
+  "style": {
+    "background": "#FFF3E0",
+    "gridStep": 40,
+    "cornerRadius": 28,
+    "labelLanguage": "en",
+    "fontSize": 14,
+    "stationRadius": 8,
+    "fontFamily": "Manrope, Inter, sans-serif",
+    "labelColor": "#4A2C2A",
+    "fontWeight": 600,
+    "fontStyle": "normal",
+    "textTransform": "none",
+    "letterSpacing": 0.2
+  },
+  "linePalette": [
+    "#FF6B35",
+    "#F7931E",
+    "#F7C59F",
+    "#EF476F",
+    "#9B5DE5",
+    "#F94144",
+    "#43AA8B",
+    "#F9C74F"
+  ],
+  "tags": [
+    "warm",
+    "sunset",
+    "poster",
+    "light"
+  ]
+}

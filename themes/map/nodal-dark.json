@@ -1,0 +1,35 @@
+{
+  "id": "nodal-dark",
+  "name": "Nodal Dark",
+  "description": "Workbench-matching dark canvas — charcoal background, light labels, vivid lines.",
+  "notes": "Designed to pair with the editor's Nodal Dark UI theme (tokens.css [data-theme='dark']). Station discs stay white in the renderer, so dark lines get a halo effect on canvas.",
+  "style": {
+    "background": "#141414",
+    "gridStep": 40,
+    "cornerRadius": 36,
+    "labelLanguage": "en",
+    "fontSize": 14,
+    "stationRadius": 8,
+    "fontFamily": "Inter, Noto Sans, sans-serif",
+    "labelColor": "#F0F0F0",
+    "fontWeight": 500,
+    "fontStyle": "normal",
+    "textTransform": "none",
+    "letterSpacing": 0
+  },
+  "linePalette": [
+    "#FF4D6D",
+    "#4CC9F0",
+    "#80ED99",
+    "#FFD166",
+    "#C77DFF",
+    "#00F5D4",
+    "#FF8A00",
+    "#06D6A0"
+  ],
+  "tags": [
+    "dark",
+    "night",
+    "screen"
+  ]
+}

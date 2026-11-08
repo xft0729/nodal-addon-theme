@@ -1,0 +1,61 @@
+{
+  "name": "nodal-addon-theme",
+  "version": "1.0.0",
+  "description": "Theme switcher addon for Nodal (Linewright) — UI themes + transit map style presets. Apply, detect, export and import themes.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./themes/map": "./themes/map",
+    "./themes/ui": "./themes/ui"
+  },
+  "bin": {
+    "nodal-theme": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "themes",
+    "addon.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "generate": "node scripts/generate-themes.mjs",
+    "serve:demo": "node scripts/serve-demo.mjs"
+  },
+  "keywords": [
+    "nodal",
+    "linewright",
+    "transit",
+    "metro",
+    "theme",
+    "preset",
+    "dark-mode",
+    "addon",
+    "extension"
+  ],
+  "license": "MIT",
+  "author": "xft0729",
+  "homepage": "https://github.com/xft0729/nodal-addon-theme#readme",
+  "bugs": "https://github.com/xft0729/nodal-addon-theme/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xft0729/nodal-addon-theme.git"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

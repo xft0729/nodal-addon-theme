@@ -1,0 +1,25 @@
+/* Nodal Theme Switcher — Solar Paper (solar) */
+:root[data-theme="solar"] {
+  color-scheme: light;
+  --color-bg: #faf5ec;
+  --color-bg-surface: #fffdf7;
+  --color-bg-canvas: #f1e8d7;
+  --color-bg-inset: #f5edd9;
+  --color-bg-panel-header: #fffaf0;
+  --color-text: #2b2118;
+  --color-text-secondary: #7a6a57;
+  --color-text-tertiary: #a89880;
+  --color-border: #e6dbc3;
+  --color-border-subtle: #efe6cf;
+  --color-border-strong: #d4c5a3;
+  --color-accent: #c25307;
+  --color-accent-hover: #a54405;
+  --color-accent-soft: rgba(194, 83, 7, 0.10);
+  --color-accent-contrast: #ffffff;
+  --color-danger: #c92a2a;
+  --color-danger-soft: #fdecec;
+  --color-success: #2f9e6e;
+  --color-success-soft: #eafaf0;
+  --color-focus-ring: #c25307;
+  --canvas-grid: #e2d5b8;
+}

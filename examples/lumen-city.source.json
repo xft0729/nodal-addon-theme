@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "meta": {
+    "title": "Lumen City (example)",
+    "author": "Nodal examples",
+    "createdAt": "2026-11-07T00:00:00.000Z"
+  },
+  "stations": {
+    "s1": { "id": "s1", "name": { "en": "Harbor Terminus", "zh-TW": "港灣總站" }, "position": { "x": 120, "y": 300 }, "kind": "terminus", "labelAnchor": "E" },
+    "s2": { "id": "s2", "name": { "en": "Market", "zh-TW": "市場" }, "position": { "x": 280, "y": 300 }, "kind": "normal", "labelAnchor": "N" },
+    "s3": { "id": "s3", "name": { "en": "Central", "zh-TW": "中央" }, "position": { "x": 440, "y": 300 }, "kind": "interchange", "labelAnchor": "N" },
+    "s4": { "id": "s4", "name": { "en": "Garden", "zh-TW": "花園" }, "position": { "x": 440, "y": 140 }, "kind": "normal", "labelAnchor": "W" },
+    "s5": { "id": "s5", "name": { "en": "University", "zh-TW": "大學" }, "position": { "x": 440, "y": 460 }, "kind": "normal", "labelAnchor": "W" },
+    "s6": { "id": "s6", "name": { "en": "North Gate", "zh-TW": "北門" }, "position": { "x": 600, "y": 140 }, "kind": "terminus", "labelAnchor": "N" },
+    "s7": { "id": "s7", "name": { "en": "East Loop", "zh-TW": "東環" }, "position": { "x": 600, "y": 300 }, "kind": "normal", "labelAnchor": "S" },
+    "s8": { "id": "s8", "name": { "en": "Museum", "zh-TW": "博物館" }, "position": { "x": 600, "y": 460 }, "kind": "normal", "labelAnchor": "E" }
+  },
+  "lines": {
+    "l1": {
+      "id": "l1",
+      "name": { "en": "Harbor Line" },
+      "color": "#E00034",
+      "style": "solid",
+      "width": 8,
+      "segments": [
+        { "from": "s1", "to": "s2" },
+        { "from": "s2", "to": "s3" },
+        { "from": "s3", "to": "s7" }
+      ]
+    },
+    "l2": {
+      "id": "l2",
+      "name": { "en": "Garden Line" },
+      "color": "#0067C0",
+      "style": "solid",
+      "width": 8,
+      "segments": [
+        { "from": "s4", "to": "s3" },
+        { "from": "s3", "to": "s5" },
+        { "from": "s5", "to": "s8" }
+      ]
+    },
+    "l3": {
+      "id": "l3",
+      "name": { "en": "North Loop" },
+      "color": "#009444",
+      "style": "dashed",
+      "width": 7,
+      "segments": [
+        { "from": "s4", "to": "s6" },
+        { "from": "s6", "to": "s7" },
+        { "from": "s7", "to": "s8" }
+      ]
+    }
+  },
+  "labels": {},
+  "style": {
+    "background": "#FFFFFF",
+    "gridStep": 40,
+    "cornerRadius": 18,
+    "labelLanguage": "en",
+    "fontSize": 14,
+    "stationRadius": 6
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "london-underground",
+  "name": "London Underground",
+  "description": "Cream station paper with the Tube roundel palette — Bakerloo to Victoria.",
+  "notes": "Bakerloo #B36305, Central #E32017, District #00782A, Jubilee #A0A5A9, Northern #000000, Piccadilly #003688, Victoria #0098D4, Waterloo & City #76C1BE.",
+  "style": {
+    "background": "#F5F0E6",
+    "gridStep": 40,
+    "cornerRadius": 18,
+    "labelLanguage": "en",
+    "fontSize": 14,
+    "stationRadius": 7,
+    "fontFamily": "Inter, 'Public Sans', sans-serif",
+    "labelColor": "#111111",
+    "fontWeight": 500,
+    "fontStyle": "normal",
+    "textTransform": "none",
+    "letterSpacing": 0
+  },
+  "linePalette": [
+    "#B36305",
+    "#E32017",
+    "#00782A",
+    "#A0A5A9",
+    "#000000",
+    "#003688",
+    "#0098D4",
+    "#76C1BE"
+  ],
+  "tags": [
+    "london",
+    "tube",
+    "heritage",
+    "print"
+  ]
+}

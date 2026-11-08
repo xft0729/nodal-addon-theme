@@ -1,0 +1,25 @@
+/* Nodal Theme Switcher — Crimson Line (crimson) */
+:root[data-theme="crimson"] {
+  color-scheme: dark;
+  --color-bg: #161011;
+  --color-bg-surface: #201517;
+  --color-bg-canvas: #100a0b;
+  --color-bg-inset: #1b1113;
+  --color-bg-panel-header: #1e1315;
+  --color-text: #f5e6e6;
+  --color-text-secondary: #b08f8f;
+  --color-text-tertiary: #7a5a5a;
+  --color-border: #382224;
+  --color-border-subtle: #2d1a1c;
+  --color-border-strong: #4d3133;
+  --color-accent: #ff4d6d;
+  --color-accent-hover: #ff7a93;
+  --color-accent-soft: rgba(255, 77, 109, 0.14);
+  --color-accent-contrast: #2b0710;
+  --color-danger: #ff6b6b;
+  --color-danger-soft: rgba(255, 107, 107, 0.15);
+  --color-success: #5ed3a3;
+  --color-success-soft: rgba(94, 211, 163, 0.13);
+  --color-focus-ring: #ff4d6d;
+  --canvas-grid: #2a191c;
+}

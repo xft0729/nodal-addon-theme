@@ -1,0 +1,36 @@
+{
+  "id": "nyc-subway",
+  "name": "NYC Subway",
+  "description": "MTA bullet colours on paper white — A/C/E blue to L grey.",
+  "notes": "A/C/E #0039A6, B/D/F/M #FF6319, G #6CBE45, J/Z #996633, L #A7A9AC, N/Q/R/W #FCCC04, 7 #B933AD, S #808183.",
+  "style": {
+    "background": "#FFFFFF",
+    "gridStep": 40,
+    "cornerRadius": 12,
+    "labelLanguage": "en",
+    "fontSize": 14,
+    "stationRadius": 7,
+    "fontFamily": "Inter, 'Helvetica Neue', sans-serif",
+    "labelColor": "#000000",
+    "fontWeight": 600,
+    "fontStyle": "normal",
+    "textTransform": "uppercase",
+    "letterSpacing": 0.3
+  },
+  "linePalette": [
+    "#0039A6",
+    "#FF6319",
+    "#6CBE45",
+    "#996633",
+    "#A7A9AC",
+    "#FCCC04",
+    "#B933AD",
+    "#808183"
+  ],
+  "tags": [
+    "nyc",
+    "subway",
+    "usa",
+    "uppercase"
+  ]
+}

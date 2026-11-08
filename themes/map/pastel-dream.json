@@ -1,0 +1,37 @@
+{
+  "id": "pastel-dream",
+  "name": "Pastel Dream",
+  "description": "Soft low-saturation pastel for playful/children and illustration maps.",
+  "notes": "Labels stay dark for contrast (#2D2A4A on #F8F7FF). Lines are light by design — avoid thin widths under 6px.",
+  "style": {
+    "background": "#F8F7FF",
+    "gridStep": 40,
+    "cornerRadius": 36,
+    "labelLanguage": "en",
+    "fontSize": 14,
+    "stationRadius": 8,
+    "fontFamily": "Nunito, Quicksand, sans-serif",
+    "labelColor": "#2D2A4A",
+    "fontWeight": 600,
+    "fontStyle": "normal",
+    "textTransform": "none",
+    "letterSpacing": 0.2
+  },
+  "linePalette": [
+    "#FF9AA2",
+    "#FFB5B5",
+    "#B5EAD7",
+    "#C7CEEA",
+    "#FFDAC1",
+    "#E2F0CB",
+    "#A2D2FF",
+    "#D5AAFF"
+  ],
+  "lineWidth": 10,
+  "tags": [
+    "pastel",
+    "soft",
+    "illustration",
+    "light"
+  ]
+}

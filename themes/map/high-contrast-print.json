@@ -1,0 +1,37 @@
+{
+  "id": "high-contrast-print",
+  "name": "High-Contrast Print",
+  "description": "Maximum-legibility black-and-white-plus-one for photocopy and B&W print.",
+  "notes": "Tuned for WCAG AAA body text (21:1). Uses black, safety red, and action blue so lines remain distinct when photocopied to grayscale.",
+  "style": {
+    "background": "#FFFFFF",
+    "gridStep": 40,
+    "cornerRadius": 18,
+    "labelLanguage": "en",
+    "fontSize": 15,
+    "stationRadius": 9,
+    "fontFamily": "Inter, sans-serif",
+    "labelColor": "#000000",
+    "fontWeight": 700,
+    "fontStyle": "normal",
+    "textTransform": "none",
+    "letterSpacing": 0.2
+  },
+  "linePalette": [
+    "#000000",
+    "#D00000",
+    "#0033A0",
+    "#067D17",
+    "#6B00B8",
+    "#E07B00",
+    "#004E66",
+    "#8A045F"
+  ],
+  "lineWidth": 10,
+  "tags": [
+    "print",
+    "accessibility",
+    "a11y",
+    "contrast"
+  ]
+}

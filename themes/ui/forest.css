@@ -1,0 +1,25 @@
+/* Nodal Theme Switcher — Forest (forest) */
+:root[data-theme="forest"] {
+  color-scheme: dark;
+  --color-bg: #0e1a12;
+  --color-bg-surface: #14251a;
+  --color-bg-canvas: #0a130d;
+  --color-bg-inset: #101e14;
+  --color-bg-panel-header: #122217;
+  --color-text: #e2f0e3;
+  --color-text-secondary: #8fb593;
+  --color-text-tertiary: #5d7f64;
+  --color-border: #1e3a28;
+  --color-border-subtle: #1a3222;
+  --color-border-strong: #2c5439;
+  --color-accent: #52d273;
+  --color-accent-hover: #7be495;
+  --color-accent-soft: rgba(82, 210, 115, 0.14);
+  --color-accent-contrast: #062213;
+  --color-danger: #ff6b6b;
+  --color-danger-soft: rgba(255, 107, 107, 0.14);
+  --color-success: #4ecdc4;
+  --color-success-soft: rgba(78, 205, 196, 0.13);
+  --color-focus-ring: #52d273;
+  --canvas-grid: #16291d;
+}

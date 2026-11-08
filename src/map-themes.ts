@@ -1,0 +1,308 @@
+import type { MapTheme } from "./types.js";
+
+/**
+ * Map presets — each theme is { style, linePalette, lineWidth?, lineStyle? }.
+ * Applying a theme merges `style` over map.style and cycles `linePalette`
+ * across lines in Object.keys(map.lines) order. Nothing else is touched
+ * (stations, segments, waypoints, labels, meta stay identical).
+ *
+ * Values are chosen to validate against Nodal's schema and render via
+ * packages/renderer/src/svg.ts without extra CSS.
+ */
+export const MAP_THEMES: MapTheme[] = [
+  {
+    id: "classic-light",
+    name: "Classic Light",
+    description: "The Lumen City default — white background, black labels, Nodal's stock palette.",
+    notes:
+      "Matches packages/app emptyMap(): #FFFFFF background, 14pt Noto Sans, station r=8, corner 36. Best starting point for new maps.",
+    style: {
+      background: "#FFFFFF",
+      gridStep: 40,
+      cornerRadius: 36,
+      labelLanguage: "en",
+      fontSize: 14,
+      stationRadius: 8,
+      fontFamily: "Noto Sans, sans-serif",
+      labelColor: "#000000",
+      fontWeight: 500,
+      fontStyle: "normal",
+      textTransform: "none",
+      letterSpacing: 0,
+    },
+    linePalette: ["#E00034", "#0067C0", "#009444", "#FF8A00", "#6A1B9A", "#00A9A5", "#E55934", "#FFC800"],
+    tags: ["default", "light", "print"],
+  },
+  {
+    id: "nodal-dark",
+    name: "Nodal Dark",
+    description: "Workbench-matching dark canvas — charcoal background, light labels, vivid lines.",
+    notes:
+      "Designed to pair with the editor's Nodal Dark UI theme (tokens.css [data-theme='dark']). Station discs stay white in the renderer, so dark lines get a halo effect on canvas.",
+    style: {
+      background: "#141414",
+      gridStep: 40,
+      cornerRadius: 36,
+      labelLanguage: "en",
+      fontSize: 14,
+      stationRadius: 8,
+      fontFamily: "Inter, Noto Sans, sans-serif",
+      labelColor: "#F0F0F0",
+      fontWeight: 500,
+      fontStyle: "normal",
+      textTransform: "none",
+      letterSpacing: 0,
+    },
+    linePalette: ["#FF4D6D", "#4CC9F0", "#80ED99", "#FFD166", "#C77DFF", "#00F5D4", "#FF8A00", "#06D6A0"],
+    tags: ["dark", "night", "screen"],
+  },
+  {
+    id: "tokyo-neon",
+    name: "Tokyo Neon",
+    description: "Deep navy night network — neon magentas and cyans for display and night maps.",
+    notes:
+      "Inspired by Tokyo's Marunouchi/Ginza/Tozai family, pushed brighter for dark backgrounds. Not for print — use Classic Light for paper.",
+    style: {
+      background: "#0B0F1A",
+      gridStep: 40,
+      cornerRadius: 28,
+      labelLanguage: "en",
+      fontSize: 14,
+      stationRadius: 8,
+      fontFamily: "'Space Grotesk', Inter, sans-serif",
+      labelColor: "#E0E7FF",
+      fontWeight: 600,
+      fontStyle: "normal",
+      textTransform: "none",
+      letterSpacing: 0.2,
+    },
+    linePalette: ["#FF2E63", "#08D9D6", "#FFDEE9", "#F9C74F", "#9B5DE5", "#00F5D4", "#F15BB5", "#00BBF9"],
+    tags: ["dark", "neon", "tokyo", "night"],
+  },
+  {
+    id: "london-underground",
+    name: "London Underground",
+    description: "Cream station paper with the Tube roundel palette — Bakerloo to Victoria.",
+    notes:
+      "Bakerloo #B36305, Central #E32017, District #00782A, Jubilee #A0A5A9, Northern #000000, Piccadilly #003688, Victoria #0098D4, Waterloo & City #76C1BE.",
+    style: {
+      background: "#F5F0E6",
+      gridStep: 40,
+      cornerRadius: 18,
+      labelLanguage: "en",
+      fontSize: 14,
+      stationRadius: 7,
+      fontFamily: "Inter, 'Public Sans', sans-serif",
+      labelColor: "#111111",
+      fontWeight: 500,
+      fontStyle: "normal",
+      textTransform: "none",
+      letterSpacing: 0,
+    },
+    linePalette: ["#B36305", "#E32017", "#00782A", "#A0A5A9", "#000000", "#003688", "#0098D4", "#76C1BE"],
+    tags: ["london", "tube", "heritage", "print"],
+  },
+  {
+    id: "taipei-metro",
+    name: "Taipei Metro",
+    description: "Bannan blue and Tamsui red with the full Taipei network — NT metro-accurate.",
+    notes:
+      "Bannan #0070BD, Tamsui-Xinyi #CB2C30, Songshan-Xindian #008659, Zhonghe-Xinlu #FFA500, Xiaobitan #F8B62D, Neihu #AD23A1, Circular #C5A254, Wendahu #C48C31.",
+    style: {
+      background: "#FFFFFF",
+      gridStep: 40,
+      cornerRadius: 36,
+      labelLanguage: "en",
+      fontSize: 14,
+      stationRadius: 8,
+      fontFamily: "'Noto Sans TC', 'Noto Sans', sans-serif",
+      labelColor: "#111111",
+      fontWeight: 500,
+      fontStyle: "normal",
+      textTransform: "none",
+      letterSpacing: 0,
+    },
+    linePalette: ["#0070BD", "#CB2C30", "#008659", "#FFA500", "#F8B62D", "#AD23A1", "#C5A254", "#C48C31"],
+    tags: ["taipei", "metro", "asia", "light"],
+  },
+  {
+    id: "nyc-subway",
+    name: "NYC Subway",
+    description: "MTA bullet colours on paper white — A/C/E blue to L grey.",
+    notes:
+      "A/C/E #0039A6, B/D/F/M #FF6319, G #6CBE45, J/Z #996633, L #A7A9AC, N/Q/R/W #FCCC04, 7 #B933AD, S #808183.",
+    style: {
+      background: "#FFFFFF",
+      gridStep: 40,
+      cornerRadius: 12,
+      labelLanguage: "en",
+      fontSize: 14,
+      stationRadius: 7,
+      fontFamily: "Inter, 'Helvetica Neue', sans-serif",
+      labelColor: "#000000",
+      fontWeight: 600,
+      fontStyle: "normal",
+      textTransform: "uppercase",
+      letterSpacing: 0.3,
+    },
+    linePalette: ["#0039A6", "#FF6319", "#6CBE45", "#996633", "#A7A9AC", "#FCCC04", "#B933AD", "#808183"],
+    tags: ["nyc", "subway", "usa", "uppercase"],
+  },
+  {
+    id: "retro-blueprint",
+    name: "Retro Blueprint",
+    description: "Sepia heritage paper with muted ink lines — vintage atlas feel.",
+    notes:
+      "Sepia #F3E9D2 background, serif display for interchange labels. Lower contrast by design; check print before distributing.",
+    style: {
+      background: "#F3E9D2",
+      gridStep: 32,
+      cornerRadius: 12,
+      labelLanguage: "en",
+      fontSize: 14,
+      stationRadius: 7,
+      fontFamily: "Merriweather, 'Noto Serif SC', Georgia, serif",
+      labelColor: "#3B2F2F",
+      fontWeight: 600,
+      fontStyle: "italic",
+      textTransform: "none",
+      letterSpacing: 0.4,
+    },
+    linePalette: ["#A44A3F", "#2E6B8A", "#4A7C59", "#C9A86A", "#6B4E71", "#B85C38", "#533B4F", "#7A8450"],
+    tags: ["retro", "vintage", "sepia", "print"],
+  },
+  {
+    id: "minimal-mono",
+    name: "Minimal Mono",
+    description: "Grayscale diagrams for wayfinding and academic maps — zero chroma.",
+    notes:
+      "Pure grayscale ramp. Every line weight/station still reads. Pair with dashed vs double styles to distinguish lines without colour.",
+    style: {
+      background: "#FFFFFF",
+      gridStep: 40,
+      cornerRadius: 0,
+      labelLanguage: "en",
+      fontSize: 14,
+      stationRadius: 6,
+      fontFamily: "'IBM Plex Mono', 'JetBrains Mono', monospace",
+      labelColor: "#000000",
+      fontWeight: 400,
+      fontStyle: "normal",
+      textTransform: "uppercase",
+      letterSpacing: 1.2,
+    },
+    linePalette: ["#000000", "#333333", "#555555", "#777777", "#999999", "#BBBBBB", "#444444", "#222222"],
+    lineStyle: "preserve",
+    tags: ["mono", "minimal", "grayscale", "wayfinding"],
+  },
+  {
+    id: "high-contrast-print",
+    name: "High-Contrast Print",
+    description: "Maximum-legibility black-and-white-plus-one for photocopy and B&W print.",
+    notes:
+      "Tuned for WCAG AAA body text (21:1). Uses black, safety red, and action blue so lines remain distinct when photocopied to grayscale.",
+    style: {
+      background: "#FFFFFF",
+      gridStep: 40,
+      cornerRadius: 18,
+      labelLanguage: "en",
+      fontSize: 15,
+      stationRadius: 9,
+      fontFamily: "Inter, sans-serif",
+      labelColor: "#000000",
+      fontWeight: 700,
+      fontStyle: "normal",
+      textTransform: "none",
+      letterSpacing: 0.2,
+    },
+    linePalette: ["#000000", "#D00000", "#0033A0", "#067D17", "#6B00B8", "#E07B00", "#004E66", "#8A045F"],
+    lineWidth: 10,
+    tags: ["print", "accessibility", "a11y", "contrast"],
+  },
+  {
+    id: "ocean-depth",
+    name: "Ocean Depth",
+    description: "Abyss blues for coastal and harbourside networks.",
+    notes:
+      "Background #0A1929, labels #D6EAF8. Palette walks harbour blue → cyan. Works for ferry and coastal-tram maps.",
+    style: {
+      background: "#0A1929",
+      gridStep: 40,
+      cornerRadius: 24,
+      labelLanguage: "en",
+      fontSize: 14,
+      stationRadius: 8,
+      fontFamily: "'Plus Jakarta Sans', Inter, sans-serif",
+      labelColor: "#D6EAF8",
+      fontWeight: 500,
+      fontStyle: "normal",
+      textTransform: "none",
+      letterSpacing: 0.2,
+    },
+    linePalette: ["#00B4D8", "#0077B6", "#48CAE4", "#90E0EF", "#0096C7", "#00D4FF", "#219EBC", "#EDF6F9"],
+    tags: ["dark", "ocean", "coastal", "ferry"],
+  },
+  {
+    id: "sunset-transit",
+    name: "Sunset Transit",
+    description: "Warm dusk gradient energy — ember, amber and violet on cream.",
+    notes:
+      "Light warm background with saturated warm palette. Poster-friendly; check that yellow labels are avoided (labels stay dark #4A2C2A).",
+    style: {
+      background: "#FFF3E0",
+      gridStep: 40,
+      cornerRadius: 28,
+      labelLanguage: "en",
+      fontSize: 14,
+      stationRadius: 8,
+      fontFamily: "Manrope, Inter, sans-serif",
+      labelColor: "#4A2C2A",
+      fontWeight: 600,
+      fontStyle: "normal",
+      textTransform: "none",
+      letterSpacing: 0.2,
+    },
+    linePalette: ["#FF6B35", "#F7931E", "#F7C59F", "#EF476F", "#9B5DE5", "#F94144", "#43AA8B", "#F9C74F"],
+    tags: ["warm", "sunset", "poster", "light"],
+  },
+  {
+    id: "pastel-dream",
+    name: "Pastel Dream",
+    description: "Soft low-saturation pastel for playful/children and illustration maps.",
+    notes:
+      "Labels stay dark for contrast (#2D2A4A on #F8F7FF). Lines are light by design — avoid thin widths under 6px.",
+    style: {
+      background: "#F8F7FF",
+      gridStep: 40,
+      cornerRadius: 36,
+      labelLanguage: "en",
+      fontSize: 14,
+      stationRadius: 8,
+      fontFamily: "Nunito, Quicksand, sans-serif",
+      labelColor: "#2D2A4A",
+      fontWeight: 600,
+      fontStyle: "normal",
+      textTransform: "none",
+      letterSpacing: 0.2,
+    },
+    linePalette: ["#FF9AA2", "#FFB5B5", "#B5EAD7", "#C7CEEA", "#FFDAC1", "#E2F0CB", "#A2D2FF", "#D5AAFF"],
+    lineWidth: 10,
+    tags: ["pastel", "soft", "illustration", "light"],
+  },
+];
+
+export const MAP_THEME_IDS: string[] = MAP_THEMES.map((t) => t.id);
+
+export function getMapTheme(id: string): MapTheme | undefined {
+  return MAP_THEMES.find((t) => t.id === id);
+}
+
+export function getMapThemeOrThrow(id: string): MapTheme {
+  const t = getMapTheme(id);
+  if (!t) throw new Error(`Unknown map theme "${id}". Known themes: ${MAP_THEME_IDS.join(", ")}`);
+  return t;
+}
+
+export function listMapThemes(): MapTheme[] {
+  return [...MAP_THEMES];
+}

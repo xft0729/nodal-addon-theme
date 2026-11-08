@@ -1,0 +1,36 @@
+{
+  "id": "tokyo-neon",
+  "name": "Tokyo Neon",
+  "description": "Deep navy night network — neon magentas and cyans for display and night maps.",
+  "notes": "Inspired by Tokyo's Marunouchi/Ginza/Tozai family, pushed brighter for dark backgrounds. Not for print — use Classic Light for paper.",
+  "style": {
+    "background": "#0B0F1A",
+    "gridStep": 40,
+    "cornerRadius": 28,
+    "labelLanguage": "en",
+    "fontSize": 14,
+    "stationRadius": 8,
+    "fontFamily": "'Space Grotesk', Inter, sans-serif",
+    "labelColor": "#E0E7FF",
+    "fontWeight": 600,
+    "fontStyle": "normal",
+    "textTransform": "none",
+    "letterSpacing": 0.2
+  },
+  "linePalette": [
+    "#FF2E63",
+    "#08D9D6",
+    "#FFDEE9",
+    "#F9C74F",
+    "#9B5DE5",
+    "#00F5D4",
+    "#F15BB5",
+    "#00BBF9"
+  ],
+  "tags": [
+    "dark",
+    "neon",
+    "tokyo",
+    "night"
+  ]
+}

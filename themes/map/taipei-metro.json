@@ -1,0 +1,36 @@
+{
+  "id": "taipei-metro",
+  "name": "Taipei Metro",
+  "description": "Bannan blue and Tamsui red with the full Taipei network — NT metro-accurate.",
+  "notes": "Bannan #0070BD, Tamsui-Xinyi #CB2C30, Songshan-Xindian #008659, Zhonghe-Xinlu #FFA500, Xiaobitan #F8B62D, Neihu #AD23A1, Circular #C5A254, Wendahu #C48C31.",
+  "style": {
+    "background": "#FFFFFF",
+    "gridStep": 40,
+    "cornerRadius": 36,
+    "labelLanguage": "en",
+    "fontSize": 14,
+    "stationRadius": 8,
+    "fontFamily": "'Noto Sans TC', 'Noto Sans', sans-serif",
+    "labelColor": "#111111",
+    "fontWeight": 500,
+    "fontStyle": "normal",
+    "textTransform": "none",
+    "letterSpacing": 0
+  },
+  "linePalette": [
+    "#0070BD",
+    "#CB2C30",
+    "#008659",
+    "#FFA500",
+    "#F8B62D",
+    "#AD23A1",
+    "#C5A254",
+    "#C48C31"
+  ],
+  "tags": [
+    "taipei",
+    "metro",
+    "asia",
+    "light"
+  ]
+}

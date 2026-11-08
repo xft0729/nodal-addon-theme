@@ -1,0 +1,25 @@
+/* Nodal Theme Switcher — High Contrast (A11y) (high-contrast) */
+:root[data-theme="high-contrast"] {
+  color-scheme: light;
+  --color-bg: #ffffff;
+  --color-bg-surface: #ffffff;
+  --color-bg-canvas: #ffffff;
+  --color-bg-inset: #ffffff;
+  --color-bg-panel-header: #ffffff;
+  --color-text: #000000;
+  --color-text-secondary: #222222;
+  --color-text-tertiary: #444444;
+  --color-border: #000000;
+  --color-border-subtle: #666666;
+  --color-border-strong: #000000;
+  --color-accent: #0000c8;
+  --color-accent-hover: #0000a0;
+  --color-accent-soft: rgba(0, 0, 200, 0.08);
+  --color-accent-contrast: #ffffff;
+  --color-danger: #c30000;
+  --color-danger-soft: #ffe5e5;
+  --color-success: #005a1e;
+  --color-success-soft: #d6f5d6;
+  --color-focus-ring: #ffcc00;
+  --canvas-grid: #dddddd;
+}

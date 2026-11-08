@@ -1,0 +1,25 @@
+/* Nodal Theme Switcher — Nodal Dark (nodal-dark) */
+:root[data-theme="nodal-dark"] {
+  color-scheme: dark;
+  --color-bg: #1c1c1c;
+  --color-bg-surface: #242424;
+  --color-bg-canvas: #161616;
+  --color-bg-inset: #1a1a1a;
+  --color-bg-panel-header: #212121;
+  --color-text: #dedede;
+  --color-text-secondary: #949494;
+  --color-text-tertiary: #666666;
+  --color-border: #2e2e2e;
+  --color-border-subtle: #272727;
+  --color-border-strong: #3d3d3d;
+  --color-accent: #2680eb;
+  --color-accent-hover: #378add;
+  --color-accent-soft: rgba(38, 128, 235, 0.15);
+  --color-accent-contrast: #ffffff;
+  --color-danger: #e34850;
+  --color-danger-soft: rgba(227, 72, 80, 0.15);
+  --color-success: #268e6c;
+  --color-success-soft: rgba(38, 142, 108, 0.15);
+  --color-focus-ring: #2680eb;
+  --canvas-grid: #222222;
+}
