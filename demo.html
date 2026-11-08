@@ -3,84 +3,256 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nodal Theme Switcher — Gallery</title>
+<title>Nodal Theme Switcher — Live demo</title>
 <style>
-  body { font-family: Inter, system-ui, sans-serif; margin: 0; padding: 24px; background: #f6f6f6; color: #1a1a1a; }
-  h1 { font-size: 20px; margin: 0 0 4px; }
-  p.sub { margin: 0 0 20px; color: #666; font-size: 13px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
-  .card { background: #fff; border: 1px solid #e2e2e2; border-radius: 12px; overflow: hidden; }
-  .card .preview { height: 120px; display: flex; align-items: flex-end; gap: 8px; padding: 12px; }
-  .card .preview .dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; background: #fff; }
+  :root { color-scheme: light; --bg:#f6f6f6; --card:#fff; --text:#1a1a1a; --muted:#666; --border:#e2e2e2; --accent:#1473e6; }
+  * { box-sizing: border-box; }
+  body { font-family: Inter, system-ui, sans-serif; margin: 0; padding: 24px; background: var(--bg); color: var(--text); }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  .subtitle { margin: 0 0 16px; color: var(--muted); font-size: 13px; max-width: 880px; line-height: 1.5; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin: 0 0 22px; }
+  .step { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
+  .step b { display: block; font-size: 13px; margin-bottom: 4px; }
+  .step span { font-size: 12px; color: var(--muted); line-height: 1.5; display: block; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 16px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+  .card .map { border-bottom: 1px solid var(--border); }
+  .card .map svg { display: block; width: 100%; height: auto; }
   .card .body { padding: 12px 14px 14px; }
   .card h3 { margin: 0 0 4px; font-size: 14px; }
-  .card .desc { margin: 0 0 8px; font-size: 12px; color: #666; min-height: 32px; }
-  .card code { font-size: 11px; color: #555; }
-  .card .row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
-  .card button { font: inherit; font-size: 12px; padding: 6px 10px; border-radius: 8px; border: 1px solid #d9d9d9; background: #fafafa; cursor: pointer; }
-  .card button.primary { background: #1473e6; border-color: #1473e6; color: #fff; }
-  section h2 { font-size: 15px; margin: 28px 0 12px; }
-  .hint { font-size: 12px; color: #777; margin-top: 20px; }
+  .card .desc { margin: 0 0 6px; font-size: 12px; color: var(--muted); line-height: 1.45; }
+  .card code { font-size: 11px; color: var(--muted); }
+  .card .row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .card button { font: inherit; font-size: 12px; padding: 7px 11px; border-radius: 9px; border: 1px solid #d9d9d9; background: #fafafa; cursor: pointer; }
+  .card button:hover { background: #f0f0f0; }
+  .card button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  section h2 { font-size: 16px; margin: 28px 0 6px; }
+  section .hint { font-size: 12px; color: var(--muted); margin: 0 0 14px; }
+  .ui-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .ui-preview { height: 110px; border-bottom: 1px solid var(--border); display: flex; gap: 8px; align-items: center; padding: 12px; }
+  .footer { margin-top: 24px; font-size: 12px; color: var(--muted); }
+  .status { font-size: 12px; color: var(--muted); margin: 12px 0; }
 </style>
 </head>
 <body>
-<h1>Nodal Theme Switcher — Gallery</h1>
-<p class="sub">Static preview generated from <code>src/map-themes.ts</code> and <code>src/ui-themes.ts</code>. Serve with <code>npm run serve:demo</code>.</p>
+<h1>Nodal Theme Switcher — Live demo</h1>
+<p class="subtitle">
+  Every card below is the <b>real Lumen City map</b> re-rendered with that theme (background, typography, line colours).
+  Pick one, hit <b>Download map .json</b>, then in Nodal do <b>File → Load JSON</b> — you will see it on the canvas.
+  No code changes to Nodal needed. Editor (workbench) themes are in the second section.
+</p>
+
+<div class="steps">
+  <div class="step"><b>1 · Pick a map theme</b><span>Scroll to a card you like — e.g. Tokyo Neon or London Underground.</span></div>
+  <div class="step"><b>2 · Download map .json</b><span>The file is Lumen City with the theme baked in (background + line colours). Works in Nodal as-is.</span></div>
+  <div class="step"><b>3 · Load in Nodal</b><span>Run Nodal (<code>pnpm dev</code>), then <b>File → Load JSON</b> → choose the downloaded file.</span></div>
+</div>
+
+<div class="status" id="status">Loading Lumen City…</div>
 
 <section>
-  <h2>Map themes</h2>
+  <h2>Map themes (12) — Lumen City preview</h2>
+  <p class="hint">Generated on the fly from <code>examples/lumen-city.source.json</code> + <code>src/map-themes.ts</code>. Geometry is identical across cards — only style + palette change.</p>
   <div class="grid" id="map-grid"></div>
 </section>
 
 <section>
-  <h2>UI themes</h2>
-  <div class="grid" id="ui-grid"></div>
+  <h2>UI themes (7) — editor chrome</h2>
+  <p class="hint">“Preview on this page” applies the theme’s CSS variables to this demo page so you can feel the workbench change. In Nodal, use <code>applyUiTheme(id)</code> or import <code>themes/ui/*.css</code> into <code>tokens.css</code> (see README).</p>
+  <div class="ui-grid" id="ui-grid"></div>
 </section>
 
-<p class="hint">Registered AddonManager id: <code>nodal-addon-theme</code> · GitHub: https://github.com/xft0729/nodal-addon-theme</p>
+<p class="footer">Addon <code>nodal-addon-theme</code> · GitHub https://github.com/xft0729/nodal-addon-theme · <button id="reset-ui" type="button" style="font:inherit;font-size:12px;padding:4px 10px;border-radius:8px;border:1px solid #d9d9d9;background:#fff;cursor:pointer">Reset page theme</button></p>
 
 <script type="module">
-  import { MAP_THEMES, UI_THEMES } from "./dist/index.js";
+  import { MAP_THEMES, UI_THEMES, applyMapTheme, getUiThemeCss } from "./dist/index.js";
+
+  const statusEl = document.getElementById("status");
+
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  function anchorOffset(anchor, gap = 14) {
+    const s = gap / Math.SQRT2;
+    switch (anchor) {
+      case "N": return { x: 0, y: -gap };
+      case "NE": return { x: s, y: -s };
+      case "E": return { x: gap, y: 0 };
+      case "SE": return { x: s, y: s };
+      case "S": return { x: 0, y: gap };
+      case "SW": return { x: -s, y: s };
+      case "W": return { x: -gap, y: 0 };
+      case "NW": return { x: -s, y: -s };
+      default: return { x: 0, y: -gap };
+    }
+  }
+  function anchorTextAnchor(anchor) {
+    if (anchor.includes("E")) return "start";
+    if (anchor.includes("W")) return "end";
+    return "middle";
+  }
+
+  function boundsOf(map) {
+    const pts = Object.values(map.stations).map(s => s.position);
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    for (const p of pts) {
+      minX = Math.min(minX, p.x); minY = Math.min(minY, p.y);
+      maxX = Math.max(maxX, p.x); maxY = Math.max(maxY, p.y);
+    }
+    const pad = 90;
+    return { x: minX - pad, y: minY - pad, w: Math.max(maxX - minX + pad*2, 200), h: Math.max(maxY - minY + pad*2, 200) };
+  }
+
+  function renderSVG(map) {
+    const b = boundsOf(map);
+    const st = map.style;
+    const lang = st.labelLanguage ?? "en";
+    const parts = [];
+    parts.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${b.x.toFixed(1)} ${b.y.toFixed(1)} ${b.w.toFixed(1)} ${b.h.toFixed(1)}" role="img" aria-label="${esc(map.meta.title)}">`);
+    parts.push(`<rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" fill="${esc(st.background)}"/>`);
+    // Lines
+    for (const line of Object.values(map.lines)) {
+      const w = line.width ?? 8;
+      const dash = line.style === "dashed" ? ` stroke-dasharray="12 8"` : "";
+      for (const seg of line.segments) {
+        const a = map.stations[seg.from]; const bb = map.stations[seg.to];
+        if (!a || !bb) continue;
+        const pts = [a.position, ...(seg.waypoints ?? []), bb.position];
+        const points = pts.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ");
+        if (line.style === "double") {
+          parts.push(`<polyline points="${points}" fill="none" stroke="${esc(line.color)}" stroke-width="${w+6}" stroke-linejoin="round" stroke-linecap="round"/>`);
+          parts.push(`<polyline points="${points}" fill="none" stroke="#fff" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"/>`);
+          parts.push(`<polyline points="${points}" fill="none" stroke="${esc(line.color)}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`);
+        } else {
+          parts.push(`<polyline points="${points}" fill="none" stroke="${esc(line.color)}" stroke-width="${w}" stroke-linejoin="round"${dash}/>`);
+        }
+      }
+    }
+    // Stations
+    const r = st.stationRadius ?? 8;
+    for (const s of Object.values(map.stations)) {
+      const lineColor = Object.values(map.lines).find(l => l.segments.some(seg => seg.from === s.id || seg.to === s.id))?.color ?? "#111";
+      parts.push(`<circle cx="${s.position.x}" cy="${s.position.y}" r="${r+5}" fill="#fff"/>`);
+      if (s.kind === "interchange") {
+        parts.push(`<circle cx="${s.position.x}" cy="${s.position.y}" r="${r}" fill="#fff" stroke="${esc(lineColor)}" stroke-width="2.5"/>`);
+        parts.push(`<circle cx="${s.position.x}" cy="${s.position.y}" r="${r+7}" fill="none" stroke="${esc(lineColor)}" stroke-width="2"/>`);
+      } else if (s.kind === "terminus") {
+        parts.push(`<rect x="${s.position.x-r}" y="${s.position.y-r}" width="${r*2}" height="${r*2}" rx="3" fill="#fff" stroke="${esc(lineColor)}" stroke-width="2.5"/>`);
+      } else {
+        parts.push(`<circle cx="${s.position.x}" cy="${s.position.y}" r="${r}" fill="#fff" stroke="${esc(lineColor)}" stroke-width="2.5"/>`);
+      }
+      const off = anchorOffset(s.labelAnchor, r + 8);
+      const lx = s.position.x + off.x + (s.labelOffset?.x ?? 0);
+      const ly = s.position.y + off.y + (s.labelOffset?.y ?? 0);
+      let name = s.name[lang] ?? s.name.en ?? Object.values(s.name)[0] ?? "Station";
+      if (st.textTransform === "uppercase") name = name.toUpperCase();
+      if (st.textTransform === "lowercase") name = name.toLowerCase();
+      const ls = st.letterSpacing ? ` letter-spacing="${st.letterSpacing}"` : "";
+      const fs = st.fontStyle && st.fontStyle !== "normal" ? ` font-style="${esc(st.fontStyle)}"` : "";
+      const fw = st.fontWeight ? ` font-weight="${st.fontWeight}"` : "";
+      parts.push(`<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="${anchorTextAnchor(s.labelAnchor)}" dominant-baseline="middle" font-family="${esc(st.fontFamily ?? "Noto Sans, sans-serif")}" font-size="${st.fontSize}" fill="${esc(st.labelColor ?? "#000")}"${fs}${fw}${ls}>${esc(name)}</text>`);
+    }
+    parts.push(`</svg>`);
+    return parts.join("\n");
+  }
+
+  function download(filename, text, type = "application/json;charset=utf-8") {
+    const blob = new Blob([text], { type });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  let sourceMap;
+  try {
+    const res = await fetch("./examples/lumen-city.source.json");
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    sourceMap = await res.json();
+    statusEl.textContent = `Lumen City loaded (${Object.keys(sourceMap.stations).length} stations, ${Object.keys(sourceMap.lines).length} lines) — rendering 12 themed previews…`;
+  } catch (e) {
+    statusEl.textContent = `Failed to load examples/lumen-city.source.json (${e.message}). Serve with: npm run build && npm run serve:demo  — then open http://localhost:4173/demo.html`;
+    console.error(e);
+    throw e;
+  }
+
   const mapGrid = document.getElementById("map-grid");
-  for (const t of MAP_THEMES) {
+  for (const theme of MAP_THEMES) {
+    const themed = applyMapTheme(sourceMap, theme.id);
     const card = document.createElement("div");
     card.className = "card";
-    const dots = t.linePalette.slice(0, 4).map(c => `<div class="dot" style="background:${c}"></div>`).join("");
     card.innerHTML = `
-      <div class="preview" style="background:${t.style.background ?? "#fff"}">
-        ${dots}
-        <span style="margin-left:auto;font-size:11px;color:${t.style.labelColor ?? "#000"}">Ag</span>
-      </div>
+      <div class="map">${renderSVG(themed)}</div>
       <div class="body">
-        <h3>${t.name}</h3>
-        <p class="desc">${t.description}</p>
-        <code>${t.id}</code>
+        <h3>${esc(theme.name)}</h3>
+        <p class="desc">${esc(theme.description)}</p>
+        <code>id: ${esc(theme.id)} · bg ${esc(theme.style.background ?? "—")}</code>
         <div class="row">
-          <button class="primary" data-copy-map="${t.id}">Copy JSON</button>
-          <button data-copy-css="${t.id}">—</button>
+          <button class="primary" data-act="map">Download map .json → use in Nodal</button>
+          <button data-act="theme">Theme .json</button>
+          <button data-act="copy">Copy theme JSON</button>
         </div>
       </div>`;
-    card.querySelector("[data-copy-map]").addEventListener("click", async () => {
-      await navigator.clipboard.writeText(JSON.stringify(t, null, 2));
+    card.querySelector('[data-act="map"]').addEventListener("click", () => {
+      download(`lumen-city.${theme.id}.json`, JSON.stringify(themed, null, 2) + "\n");
     });
-    card.querySelector("[data-copy-css]").remove();
+    card.querySelector('[data-act="theme"]').addEventListener("click", () => {
+      download(`${theme.id}.theme.json`, JSON.stringify(theme, null, 2) + "\n");
+    });
+    card.querySelector('[data-act="copy"]').addEventListener("click", async (ev) => {
+      await navigator.clipboard.writeText(JSON.stringify(theme, null, 2));
+      ev.target.textContent = "Copied ✓";
+      setTimeout(() => ev.target.textContent = "Copy theme JSON", 1400);
+    });
     mapGrid.appendChild(card);
   }
+  statusEl.textContent = "Done — 12 map previews rendered. Pick one and download.";
+
+  // UI themes
   const uiGrid = document.getElementById("ui-grid");
+  let injected = null;
+  function applyUiPreview(id) {
+    if (injected) { injected.remove(); injected = null; }
+    const el = document.createElement("style");
+    el.textContent = getUiThemeCss(id);
+    document.head.appendChild(el);
+    injected = el;
+    // Extended themes use data-theme=id; stock light/dark use mode.
+    const theme = UI_THEMES.find(t => t.id === id);
+    document.documentElement.dataset.theme = (id === "nodal-light" || id === "nodal-dark") ? theme.mode : id;
+  }
+  document.getElementById("reset-ui").addEventListener("click", () => {
+    if (injected) { injected.remove(); injected = null; }
+    delete document.documentElement.dataset.theme;
+    document.body.style.background = "";
+  });
   for (const t of UI_THEMES) {
+    const v = t.variables;
     const card = document.createElement("div");
     card.className = "card";
-    const v = t.variables;
     card.innerHTML = `
-      <div class="preview" style="background:${v["--color-bg"]}">
-        <div style="flex:1;background:${v["--color-bg-surface"]};border:1px solid ${v["--color-border"]};border-radius:8px;padding:8px;color:${v["--color-text"]};font-size:11px">Panel</div>
-        <button style="background:${v["--color-accent"]};color:${v["--color-accent-contrast"]};border:none;border-radius:8px;padding:6px 10px;font-size:11px">Go</button>
+      <div class="ui-preview" style="background:${v["--color-bg"]}">
+        <div style="flex:1;background:${v["--color-bg-surface"]};border:1px solid ${v["--color-border"]};border-radius:8px;padding:10px;color:${v["--color-text"]};font-size:12px">Panel <span style="color:${v["--color-text-secondary"]}">· ${esc(t.id)}</span></div>
+        <button style="background:${v["--color-accent"]};color:${v["--color-accent-contrast"]};border:none;border-radius:8px;padding:7px 12px;font-size:12px" data-act="preview">Preview</button>
       </div>
       <div class="body">
-        <h3>${t.name}</h3>
-        <p class="desc">${t.description}</p>
-        <code>${t.id} · ${t.mode}</code>
+        <h3>${esc(t.name)} <span style="font-weight:400;color:var(--muted);font-size:11px">· ${esc(t.mode)}</span></h3>
+        <p class="desc">${esc(t.description)}</p>
+        <code>${esc(t.id)}</code>
+        <div class="row">
+          <button data-act="css">Download .css</button>
+          <button data-act="copy">Copy CSS</button>
+        </div>
       </div>`;
+    card.querySelector('[data-act="preview"]').addEventListener("click", () => applyUiPreview(t.id));
+    card.querySelector('[data-act="css"]').addEventListener("click", () => download(`${t.id}.css`, getUiThemeCss(t.id), "text/css;charset=utf-8"));
+    card.querySelector('[data-act="copy"]').addEventListener("click", async (ev) => {
+      await navigator.clipboard.writeText(getUiThemeCss(t.id));
+      ev.target.textContent = "Copied ✓";
+      setTimeout(() => ev.target.textContent = "Copy CSS", 1400);
+    });
     uiGrid.appendChild(card);
   }
 </script>

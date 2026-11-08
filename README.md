@@ -6,6 +6,11 @@ Switch between **12 transit map presets** and **7 editor UI themes** in one clic
 
 > GitHub: https://github.com/xft0729/nodal-addon-theme · License: MIT · Zero runtime deps
 
+**→ New here? Start with [QUICKSTART.md](./QUICKSTART.md) (60 seconds, no code).**
+Live gallery: `npm run build && npm run serve:demo` → http://localhost:4173/demo.html (12 full maps rendered per theme; download any card → **File → Load JSON** in Nodal).
+
+> Honest note: Nodal has no plugin loader yet (`docs/PLUGINS.md` — “still just an idea”, `CATALOG = []` in `AddonManager.tsx`). So this addon cannot install itself. It works three ways: (1) download a themed map `.json` and load it, (2) run the CLI to transform your map, (3) paste 3 lines into Nodal to list it + add a dropdown (`QUICKSTART.md` Option 3).
+
 ## What it adds
 
 Nodal ships with one light / one dark UI theme and hand-tuned `MapStyle` (see `packages/app/src/styles/tokens.css`, `packages/core/src/types.ts`). This addon expands that to:
@@ -187,6 +192,7 @@ nodal-theme validate --in theme.json
 
 ```
 addon.json                 AddonManager manifest (id: nodal-addon-theme)
+QUICKSTART.md              60-second use cases (no code required)
 src/
   types.ts                 MetroMap-compatible types (no @linewright/core dep)
   map-themes.ts            12 map presets
