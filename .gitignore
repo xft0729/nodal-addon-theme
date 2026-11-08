@@ -1,5 +1,7 @@
 node_modules/
-dist/
 .DS_Store
 *.log
 coverage/
+# dist/ is committed intentionally — Nodal's ThemePicker loads it via
+# jsdelivr CDN (https://cdn.jsdelivr.net/gh/xft0729/nodal-addon-theme@main/dist/...).
+# Run `npm run build` after changing src/ and commit the result.
