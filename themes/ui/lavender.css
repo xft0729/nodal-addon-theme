@@ -1,0 +1,25 @@
+/* Nodal Theme Switcher — Lavender (lavender) */
+:root[data-theme="lavender"] {
+  color-scheme: light;
+  --color-bg: #faf5ff;
+  --color-bg-surface: #ffffff;
+  --color-bg-canvas: #f3e8ff;
+  --color-bg-inset: #f5f0ff;
+  --color-bg-panel-header: #fdfbff;
+  --color-text: #2e1065;
+  --color-text-secondary: #7c6aa8;
+  --color-text-tertiary: #a78bca;
+  --color-border: #e9d5ff;
+  --color-border-subtle: #f0e6ff;
+  --color-border-strong: #d8b4fe;
+  --color-accent: #7c3aed;
+  --color-accent-hover: #6d28d9;
+  --color-accent-soft: rgba(124, 58, 237, 0.10);
+  --color-accent-contrast: #ffffff;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fef2f2;
+  --color-success: #059669;
+  --color-success-soft: #ecfdf5;
+  --color-focus-ring: #7c3aed;
+  --canvas-grid: #e9d5ff;
+}

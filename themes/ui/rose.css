@@ -1,0 +1,25 @@
+/* Nodal Theme Switcher — Rose (rose) */
+:root[data-theme="rose"] {
+  color-scheme: light;
+  --color-bg: #fff1f2;
+  --color-bg-surface: #ffffff;
+  --color-bg-canvas: #ffe4e6;
+  --color-bg-inset: #fdeaea;
+  --color-bg-panel-header: #fff7f7;
+  --color-text: #4c0519;
+  --color-text-secondary: #9f6a72;
+  --color-text-tertiary: #c09095;
+  --color-border: #fecdd3;
+  --color-border-subtle: #fee2e2;
+  --color-border-strong: #fda4af;
+  --color-accent: #e11d48;
+  --color-accent-hover: #be123c;
+  --color-accent-soft: rgba(225, 29, 72, 0.10);
+  --color-accent-contrast: #ffffff;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fef2f2;
+  --color-success: #059669;
+  --color-success-soft: #ecfdf5;
+  --color-focus-ring: #e11d48;
+  --canvas-grid: #fecdd3;
+}

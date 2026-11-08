@@ -1,0 +1,25 @@
+/* Nodal Theme Switcher — Violet Night (violet) */
+:root[data-theme="violet"] {
+  color-scheme: dark;
+  --color-bg: #1a0b2e;
+  --color-bg-surface: #251240;
+  --color-bg-canvas: #12081f;
+  --color-bg-inset: #1e0e36;
+  --color-bg-panel-header: #221038;
+  --color-text: #ede9fe;
+  --color-text-secondary: #a78bc7;
+  --color-text-tertiary: #7c66ab;
+  --color-border: #332058;
+  --color-border-subtle: #2a1a4a;
+  --color-border-strong: #472e7a;
+  --color-accent: #a78bfa;
+  --color-accent-hover: #c4b5fd;
+  --color-accent-soft: rgba(167, 139, 250, 0.15);
+  --color-accent-contrast: #2e1065;
+  --color-danger: #fb7185;
+  --color-danger-soft: rgba(251, 113, 133, 0.14);
+  --color-success: #34d399;
+  --color-success-soft: rgba(52, 211, 153, 0.13);
+  --color-focus-ring: #a78bfa;
+  --canvas-grid: #28164a;
+}

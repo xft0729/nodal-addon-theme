@@ -1,0 +1,25 @@
+/* Nodal Theme Switcher — Deep Teal (teal) */
+:root[data-theme="teal"] {
+  color-scheme: dark;
+  --color-bg: #042f2e;
+  --color-bg-surface: #0a3a37;
+  --color-bg-canvas: #032220;
+  --color-bg-inset: #07302d;
+  --color-bg-panel-header: #083431;
+  --color-text: #ccfbf1;
+  --color-text-secondary: #7dc9c0;
+  --color-text-tertiary: #4f958d;
+  --color-border: #15534f;
+  --color-border-subtle: #114742;
+  --color-border-strong: #21726b;
+  --color-accent: #2dd4bf;
+  --color-accent-hover: #5eead4;
+  --color-accent-soft: rgba(45, 212, 191, 0.14);
+  --color-accent-contrast: #042f2e;
+  --color-danger: #f8a5a5;
+  --color-danger-soft: rgba(248, 165, 165, 0.14);
+  --color-success: #34d399;
+  --color-success-soft: rgba(52, 211, 153, 0.13);
+  --color-focus-ring: #2dd4bf;
+  --canvas-grid: #0d3f3c;
+}

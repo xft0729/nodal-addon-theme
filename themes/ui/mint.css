@@ -1,0 +1,25 @@
+/* Nodal Theme Switcher — Mint (mint) */
+:root[data-theme="mint"] {
+  color-scheme: light;
+  --color-bg: #f0fdf4;
+  --color-bg-surface: #ffffff;
+  --color-bg-canvas: #dcfce7;
+  --color-bg-inset: #e6f9ec;
+  --color-bg-panel-header: #f7fef9;
+  --color-text: #052e16;
+  --color-text-secondary: #4a7a5c;
+  --color-text-tertiary: #7ba88a;
+  --color-border: #bbf7d0;
+  --color-border-subtle: #d9fbe4;
+  --color-border-strong: #86efac;
+  --color-accent: #059669;
+  --color-accent-hover: #047857;
+  --color-accent-soft: rgba(5, 150, 105, 0.10);
+  --color-accent-contrast: #ffffff;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fef2f2;
+  --color-success: #059669;
+  --color-success-soft: #ecfdf5;
+  --color-focus-ring: #059669;
+  --canvas-grid: #cbf5d8;
+}

@@ -1,0 +1,25 @@
+/* Nodal Theme Switcher — Sky (sky) */
+:root[data-theme="sky"] {
+  color-scheme: light;
+  --color-bg: #f0f9ff;
+  --color-bg-surface: #ffffff;
+  --color-bg-canvas: #e0f2fe;
+  --color-bg-inset: #e8f5ff;
+  --color-bg-panel-header: #f7fcff;
+  --color-text: #0c2d4a;
+  --color-text-secondary: #4a7396;
+  --color-text-tertiary: #7ba0bd;
+  --color-border: #bae6fd;
+  --color-border-subtle: #d9efff;
+  --color-border-strong: #7dd3fc;
+  --color-accent: #0284c7;
+  --color-accent-hover: #0369a1;
+  --color-accent-soft: rgba(2, 132, 199, 0.10);
+  --color-accent-contrast: #ffffff;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fef2f2;
+  --color-success: #059669;
+  --color-success-soft: #ecfdf5;
+  --color-focus-ring: #0284c7;
+  --canvas-grid: #c2e9fc;
+}
