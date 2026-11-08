@@ -22,4 +22,11 @@
   --color-success-soft: #ecfdf5;
   --color-focus-ring: #0284c7;
   --canvas-grid: #c2e9fc;
+  --font-sans: Poppins, Inter, sans-serif;
+  --radius-1: 4px;
+  --radius-2: 8px;
+  --radius-3: 10px;
+  --radius-4: 12px;
+  --panel-w: 250px;
+  --dock-w: 40px;
 }

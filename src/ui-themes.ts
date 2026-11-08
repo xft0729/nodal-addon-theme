@@ -1,4 +1,5 @@
 import type { UiTheme } from "./types.js";
+import { UI_STRUCTURES } from "./ui-structures.js";
 
 /**
  * Editor UI themes — semantic CSS variables that override Nodal's
@@ -433,12 +434,16 @@ export function listUiThemes(): UiTheme[] {
  * Also includes `color-scheme`.
  */
 export function uiThemeToCss(theme: UiTheme): string {
+  const structure = UI_STRUCTURES[theme.id] ?? {};
   const lines: string[] = [
     `/* Nodal Theme Switcher — ${theme.name} (${theme.id}) */`,
     `:root[data-theme="${theme.id}"] {`,
     `  color-scheme: ${theme.mode === "dark" ? "dark" : "light"};`,
   ];
   for (const [k, v] of Object.entries(theme.variables)) {
+    lines.push(`  ${k}: ${v};`);
+  }
+  for (const [k, v] of Object.entries(structure)) {
     lines.push(`  ${k}: ${v};`);
   }
   for (const [k, v] of Object.entries(theme.extraVariables ?? {})) {
